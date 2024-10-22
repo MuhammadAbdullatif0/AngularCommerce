@@ -1,0 +1,33 @@
+.category-filter {
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.category-filter div {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.category-filter div:hover {
+  background-color: #eaeaea;
+}
+
+.category-filter input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.2);
+}
+
+.category-filter label {
+  font-weight: bold;
+  cursor: pointer;
+}

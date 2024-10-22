@@ -1,0 +1,16 @@
+@if(categories){
+<div class="category-filter">
+  <label>Filter by Categories:</label>
+  @for ( category of categories; track $index) {
+  <div>
+    <input
+      type="checkbox"
+      [id]="category.id"
+      [value]="category.id"
+      (change)="onCategoryChange(category.id, $event)"
+    />
+    <label [for]="category.id">{{ category.name }}</label>
+  </div>
+  }
+</div>
+}

@@ -1,0 +1,31 @@
+@if (products && products.count > 0) {
+<app-category-filter
+  (categorySelected)="onCategorySelected($event)"
+></app-category-filter>
+
+<app-Pagination
+  [totalPages]="totalPages"
+  [currentPage]="productParams.pageNumber"
+  (pageChanged)="onPageChange($event)"
+  class="pagination-container"
+>
+</app-Pagination>
+<div class="shop-container">
+  @for (product of products.data; track product.id) {
+  <div class="product-card">
+    <div class="product-image-container">
+      <img
+        [src]="'https://localhost:7167' + product.imgUrl"
+        alt="{{ product.name }}"
+        class="product-image"
+      />
+    </div>
+    <div class="product-details">
+      <h3 class="product-name">{{ product.name }}</h3>
+      <p class="product-price">{{ product?.price | currency : "USD" }}</p>
+    </div>
+    <button class="add-to-cart">Add to cart</button>
+  </div>
+  }
+</div>
+}

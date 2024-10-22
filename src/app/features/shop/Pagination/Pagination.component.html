@@ -1,0 +1,27 @@
+<div class="pagination-container">
+  <button
+    class="pagination-btn"
+    (click)="prevPage()"
+    [disabled]="currentPage === 1"
+  >
+    &laquo; Prev
+  </button>
+  @for (page of [].constructor(totalPages); track $index) {
+  <span>
+    <button
+      class="pagination-btn"
+      (click)="goToPage($index + 1)"
+      [class.active]="currentPage === $index + 1"
+    >
+      {{ $index + 1 }}
+    </button>
+  </span>
+  }
+  <button
+    class="pagination-btn"
+    (click)="nextPage()"
+    [disabled]="currentPage === totalPages"
+  >
+    Next &raquo;
+  </button>
+</div>
