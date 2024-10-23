@@ -21,7 +21,7 @@ export class CartService {
     );
 
     if (existingItem) {
-      existingItem.quantity += item.quantity;
+      existingItem.quantity += 1;
     } else {
       item.quantity = 1;
       this.cartItems.push(item);
