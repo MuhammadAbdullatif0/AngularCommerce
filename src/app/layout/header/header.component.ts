@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CartService } from '../../core/services/Cart.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
+  private cartService = inject(CartService);
+  cartCount: number = 0;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.cartService.cart$.subscribe((cartItems) => {
+      this.cartCount = cartItems.length;
+    });
+  }
 }

@@ -1,3 +1,4 @@
+import { CartService } from './../../core/services/Cart.service';
 import { Component, inject, OnInit } from '@angular/core';
 import { ShopService } from '../../core/services/shop.service';
 import { Pagination } from '../../shared/models/Pagination';
@@ -16,6 +17,7 @@ import { CategoryFilterComponent } from './category-filter/category-filter.compo
 })
 export class ShopComponent implements OnInit {
   private shopService = inject(ShopService);
+  private CartService = inject(CartService);
   products?: Pagination<Product>;
   productParams = new ShopParams();
   totalPages = 0;
@@ -35,8 +37,17 @@ export class ShopComponent implements OnInit {
     });
   }
 
+  addToCart(product: any) {
+    this.CartService.addToCart(product);
+  }
+
   onPageChange(page: number) {
     this.productParams.pageNumber = page;
+    this.getProducts();
+  }
+
+  onSizeChange(size: number) {
+    this.productParams.pageSize = size;
     this.getProducts();
   }
 

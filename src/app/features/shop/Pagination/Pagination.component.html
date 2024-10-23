@@ -1,4 +1,15 @@
 <div class="pagination-container">
+  <label for="itemsPerPage" class="items-label">Items per page:</label>
+  <select
+    id="itemsPerPage"
+    class="page-size-dropdown"
+    (change)="onPageSizeChange($event)"
+  >
+    @for ( size of pageSizes; track $index) {
+    <option [value]="size">{{ size }}</option>
+    }
+  </select>
+
   <button
     class="pagination-btn"
     (click)="prevPage()"

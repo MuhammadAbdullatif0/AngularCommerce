@@ -1,0 +1,42 @@
+<div class="cart-container">
+  <h1>Your Shopping Cart</h1>
+
+  <div class="cart-items">
+    @for (item of cartItems; track $index) {
+    <div class="cart-item">
+      <div class="item-image">
+        <img
+          [src]="'https://localhost:7167' + item.imgUrl"
+          alt="{{ item.name }}"
+        />
+      </div>
+      <div class="item-details">
+        <h3>{{ item.name }}</h3>
+        <p>Price: ${{ item.price }}</p>
+        <div class="quantity">
+          <button (click)="decreaseQuantity(item)">-</button>
+          <input type="text" [value]="item.quantity" readonly />
+          <button (click)="increaseQuantity(item)">+</button>
+        </div>
+      </div>
+      <div class="item-total">
+        <p>$ {{ item.price * item.quantity }}</p>
+        <button class="remove-btn" (click)="removeFromCart(item)">
+          Remove
+        </button>
+      </div>
+    </div>
+    }
+  </div>
+
+  <div class="cart-summary">
+    <h2>Order Summary</h2>
+    <p>Subtotal: ${{ total }}</p>
+    <p>Discount: - $0.00</p>
+    <h3>Total: ${{ total }}</h3>
+    <button class="checkout-btn">Checkout</button>
+    <button class="continue-shopping-btn">
+      <a routerLink="/shop">Continue Shopping</a>
+    </button>
+  </div>
+</div>

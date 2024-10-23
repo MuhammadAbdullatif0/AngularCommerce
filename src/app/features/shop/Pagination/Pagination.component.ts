@@ -1,3 +1,4 @@
+import { ShopParams } from './../../../shared/models/ShopParams';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
@@ -11,6 +12,9 @@ export class PaginationComponent {
   @Input() totalPages!: number;
   @Input() currentPage!: number;
   @Output() pageChanged = new EventEmitter<number>();
+  @Output() pageSizeChanged = new EventEmitter<number>();
+  shopParams: ShopParams = new ShopParams();
+  pageSizes = [this.shopParams.pageSize, 4, 10, 15, 20, 50];
 
   constructor() {}
 
@@ -30,5 +34,10 @@ export class PaginationComponent {
     if (page !== this.currentPage && page >= 1 && page <= this.totalPages) {
       this.pageChanged.emit(page);
     }
+  }
+
+  onPageSizeChange(event: Event) {
+    const newSize = +(event.target as HTMLSelectElement).value;
+    this.pageSizeChanged.emit(newSize);
   }
 }

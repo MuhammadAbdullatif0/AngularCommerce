@@ -28,3 +28,24 @@
   background-color: #574bce;
   font-weight: bold;
 }
+
+.pagination-container select {
+  padding: 5px;
+  margin-left: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background-color: white;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.pagination-container select:hover {
+  border-color: #574bce;
+}
+
+.pagination-container label {
+  margin-right: 10px;
+  font-weight: bold;
+  color: #333;
+}

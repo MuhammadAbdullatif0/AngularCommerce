@@ -6,7 +6,6 @@
         alt="Logo"
         style="width: 200px"
       />
-  
     </div>
   </div>
 
@@ -26,8 +25,10 @@
 
   <div class="auth-cart">
     <div class="cart">
-      <span class="cart-icon">🛒</span>
-      <span class="cart-count">4</span>
+      <span class="cart-icon"
+        ><a routerLink="/cart" routerLinkActive="active">🛒</a></span
+      >
+      <span class="cart-count">{{ cartCount }}</span>
     </div>
   </div>
 </header>
