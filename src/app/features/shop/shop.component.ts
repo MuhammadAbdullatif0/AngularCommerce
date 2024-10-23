@@ -48,6 +48,7 @@ export class ShopComponent implements OnInit {
 
   onSizeChange(size: number) {
     this.productParams.pageSize = size;
+    this.productParams.pageNumber = 1;
     this.getProducts();
   }
 
